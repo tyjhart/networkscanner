@@ -34,7 +34,8 @@ git clone https://github.com/manitonetworks/networkscanner.git
 
 The download should only take a moment, then change directory to the repo's Install directory:
 ```
-cd networkscanner/Install
+cd networkscanner
+cd Install
 ```
 
 ## Linux
