@@ -1,5 +1,5 @@
 # Preface
-The installation is orchestrated with Git and Pip, and it should require very little manual intervention on your part. Follow the steps in order, and report any problems you run into via an Issue on the Gitlab project page.
+The installation is orchestrated with Git and Pip, and it should require very little manual intervention on your part. Follow the steps in order, and report any problems you run into via an Issue on the Github project page.
 
 # Overview
 1. [Installation](#installation)
@@ -26,7 +26,7 @@ Download the installer from https://git-for-windows.github.io/
 
 Once Git is ready to go, clone the Git repository:
 ```
-git clone https://gitlab.com/thart/networkscanner.git
+git clone https://github.com/manitonetworks/networkscanner.git
 ```
 
 The download should only take a moment, then change directory to the repo's Install directory:

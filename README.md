@@ -35,7 +35,7 @@ The scanner has the following features and functions:
 5. [SNMP Public Community Check](#snmp-public-community)
 
 ## Quick Installation
-It takes about 10 minutes to clone the Gitlab repository, add your router IP addresses to the config.py file, and run your first scan. 
+It takes about 10 minutes to clone the Github repository, add your router IP addresses to the config.py file, and run your first scan. 
 
 Check out [the installation documentation](./Install/README.md) for the few quick commands to get up and running.
 
