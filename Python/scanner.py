@@ -32,10 +32,10 @@ except:
 try: 
 	log_level # Check if log level was passed in from command arguments
 except NameError:
-	log_level="INFO" # Use default logging level
+	log_level="WARNING" # Use default logging level
 
 logging.basicConfig(level=str(log_level)) # Set the logging level
-logging.warning('Log level set to ' + str(log_level) + " - OK") # Show the logging level for debug
+#logging.warning('Log level set to ' + str(log_level) + " - OK") # Show the logging level for debug
 
 # Cache for tuples of (score,weight)
 #

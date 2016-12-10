@@ -9,7 +9,7 @@ See the [License section](#license) below for licensing details, and the [Manito
     2. [Weighted Scoring](#weighted-scoring)
     3. [Default Credential Checks](#default-credential-checks)
     4. [TCP Services Scan](#tcp-services-scan)
-    5. [SNMP Public Community Check](#snmp-public-community)
+    5. [SNMP Public Community Check](#snmp-public-community-check)
 3. [Requirements](#requirements)
 4. [Installation](#installation)
 5. [Debugging](#debugging)
@@ -32,7 +32,7 @@ The scanner has the following features and functions:
 2. [Weighted Scoring](#weighted-scoring)
 3. [Default Credential Checks](#default-credential-checks)
 4. [TCP Services Scan](#tcp-services-scan)
-5. [SNMP Public Community Check](#snmp-public-community)
+5. [SNMP Public Community Check](#snmp-public-community-check)
 
 ## Quick Installation
 It takes about 10 minutes to clone the Github repository, add your router IP addresses to the config.py file, and run your first scan. 

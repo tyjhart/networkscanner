@@ -65,9 +65,16 @@ python scanner.py --log=info
 ```
 This will output scan activity dialog, as well as JSON scan results.
 
-To output JSON scan results to a file:
+To output JSON scan results to a file, do the following:
+
+### Linux JSON File Output
 ```
 python scanner.py &> scan_results.json
+```
+
+### Windows JSON File Output
+```
+python scanner.py >> scan_results.json
 ```
 
 # ---
