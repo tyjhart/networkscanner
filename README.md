@@ -1,4 +1,4 @@
-# Mikrotik Compliance Scanner
+# Mikrotik Network Compliance Scanner
 This project is a compliance scanner for Mikrotik routers. It verifies best practices have been implemented and the attack surface of your router is minimized as much as possible.
 
 See the [License section](#license) below for licensing details, and the [Manito Networks Router Hardening Guide](https://www.manitonetworks.com/mikrotik/2016/5/24/mikrotik-router-hardening) for Mikrotik to see an outline of what all will eventually be covered beyond what's currently supported.
