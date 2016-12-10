@@ -1,0 +1,12 @@
+Copyright 2016, Manito Networks, LLC. All rights reserved.
+
+Collector Usage: 
+    python scanner.py -option argument
+    python scanner.py --option=argument
+
+Logging levels:
+
+-l, --log: Sets the logging level for the collector
+    Examples: -l info, --log=info
+    Options: info, warning
+    Default: warning
