@@ -8,6 +8,10 @@ chmod -R +x ..
 echo "Copy example config_default.py to real config.py"
 cp $(pwd)/Python/config_default.py $(pwd)/Python/config.py
 
+# Dependencies
+echo "Installing Python dependencies"
+apt-get install -y python-dev libffi-dev libssl-dev
+
 # Install Python dependencies
 echo "Install Python dependencies"
 pip install -r ./Install/requirements.txt
