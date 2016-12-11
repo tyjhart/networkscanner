@@ -5,9 +5,9 @@
 chmod -R +x ..
 
 # Copy example config_default.py to real config_options.py
-echo "Copy example config_default.py to real configu.py"
+echo "Copy example config_default.py to real config.py"
 cp $(pwd)/Python/config_default.py $(pwd)/Python/config.py
 
 # Install Python dependencies
 echo "Install Python dependencies"
-pip install requirements.txt
+pip install -r ./Install/requirements.txt

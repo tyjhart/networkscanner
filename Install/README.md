@@ -4,11 +4,12 @@ The installation is orchestrated with Git and Pip, and it should require very li
 # Overview
 1. [Installation](#installation)
     1. [Git](#git)
-        1. [Ubuntu / Debian Linux](#ubuntu-debian-linux)
-        2. [Windows](#windows)
-        3. [Clone the Git Repository](#clone-the-git-repository)
-    2. [Linux](#linux)
-    3. [Windows](#windows)
+        - [Ubuntu / Debian Linux](#git-on-ubuntu-debian-linux)
+        - [Windows](#git-on-windows)
+    2. [Python Pip](#python-pip)
+    3. [Clone the Git Repository](#clone-the-git-repository)
+    4. [Installation on Linux](#linux)
+    5. [Installation on Windows](#windows)
 2. [Add Devices](#add-devices)
 3. [Run Scans](#run-scans)
 
@@ -18,15 +19,29 @@ Follow the steps below in order and the installation should take no more than ab
 ## Git
 Make sure Git is installed, then clone the Git repository.
 
-### Ubuntu / Debian Linux
+### Git on Ubuntu / Debian Linux
 ```
 sudo apt-get install git
 ```
 
-### Windows
+### Git on Windows
 Download the installer from [the Github for Windows download page](https://git-for-windows.github.io/).
 
-### Clone the Git Repository
+## Python Pip
+If you don't have Python Pip installed by default (Windows, some Linux versions, Bash on Ubuntu on Windows) do the following:
+
+### Ubuntu / Debian Linux Pip
+```
+sudo apt-get install python-pip
+```
+
+### Windows Pip
+Download the get-pip.py file from [the pypa.io Pip download page](https://pip.pypa.io/en/stable/installing/), then run the following:
+```
+python get-pip.py
+```
+
+## Clone the Git Repository
 Clone the Git repository:
 ```
 git clone https://github.com/manitonetworks/networkscanner.git
@@ -35,7 +50,6 @@ git clone https://github.com/manitonetworks/networkscanner.git
 The download should only take a moment, then change directory to the repo's Install directory:
 ```
 cd networkscanner
-cd Install
 ```
 
 ## Linux
@@ -43,7 +57,7 @@ Use the following steps to install the network scanner on Linux.
 
 The install.sh script handles almost everything, just be sure to run it with sudo privileges:
 ```
-sudo sh install.sh
+sudo sh ./Install/install.sh
 ```
 
 ## Windows
@@ -51,12 +65,12 @@ Use the following steps to install the network scanner on Windows.
 
 Install Python dependencies with Pip:
 ```
-python -m pip install -r requirements.txt
+python -m pip install -r ./Install/requirements.txt
 ```
 
 Copy the default config_default.py file:
 ```
-copy ..\Python\config_default.py ..\Python\config.py
+copy .\Python\config_default.py .\Python\config.py
 ```
 
 # Add Devices
