@@ -74,7 +74,7 @@ copy .\Python\config_default.py .\Python\config.py
 ```
 
 # Add Devices
-Modify the config.py file in the Python directory to include your Mikrotik device IP addresses. Examples are included in the file, and a backup copy of the file is included (config_default.py) just in case you need it. Replace the IP addresses in the file with your own.
+Modify the Python/config.py file in the Python directory to include your Mikrotik device IP addresses. Examples are included in the file, and a backup copy of the file is included (config_default.py) just in case you need it. Replace the IP addresses in the file with your own.
 
 An example of this section of the config.py file is shown below, set to scan the devices at 192.168.56.101 and 192.168.56.102:
 ```
@@ -87,12 +87,14 @@ targets = ["192.168.56.101","192.168.56.102"]
 # Run Scans
 Run the Python scanner.py file, as shown below:
 ```
+cd Python
 python scanner.py
 ```
 This will output JSON scan results after the scan completes.
 
 For additional verbose output set the logging level:
 ```
+cd Python
 python scanner.py -l info
 python scanner.py --log=info
 ```
@@ -102,11 +104,13 @@ To output JSON scan results to a .json file do the following:
 
 ### Linux JSON File Output
 ```
+cd Python
 python scanner.py &> scan_results.json
 ```
 
 ### Windows JSON File Output
 ```
+cd Python
 python scanner.py >> scan_results.json
 ```
 
