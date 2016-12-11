@@ -5,11 +5,11 @@ See the [License section](#license) below for licensing details, and the [Manito
 
 1. [Project Goals](#project-goals)
 2. [Features](#features)
-    1. [Quick Installation](#quick-installation)
-    2. [Weighted Scoring](#weighted-scoring)
-    3. [Default Credential Checks](#default-credential-checks)
-    4. [TCP Services Scan](#tcp-services-scan)
-    5. [SNMP Public Community Check](#snmp-public-community-check)
+    - [Quick Installation](#quick-installation)
+    - [Weighted Scoring](#weighted-scoring)
+    - [Default Credential Checks](#default-credential-checks)
+    - [TCP Services Scan](#tcp-services-scan)
+    - [SNMP Public Community Check](#snmp-public-community-check)
 3. [Requirements](#requirements)
 4. [Installation](#installation)
 5. [Debugging](#debugging)
@@ -91,7 +91,7 @@ Install by cloning the latest Git repo, then run the Ubuntu installation script.
 See the [installation documentation](Install/README.md) for more information.
 
 # Debugging
-If you run into any issues during or after installation check out the [Run Scans installation section](./Install/README.md#run-scans) for helpful commands and debugging options.
+If you run into any issues during or after installation check out the ["Run Scans" installation section](./Install/README.md#run-scans) for helpful commands and debugging options.
 
 # Contributing
 We encourage people who use the scanner to contribute to the project if they find a bug or documentation issue, or want to see a feature added. See the [Contributing page](CONTRIBUTING.md) for more information about contributing code to the project.

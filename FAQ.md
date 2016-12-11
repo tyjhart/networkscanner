@@ -2,7 +2,7 @@
 Below are some frequently asked questions that we expect to answer, or have already been asked:
 
 ## Is only Mikrotik supported?
-Original proof-of-concept code was made to support Mikrotik-heavy networks, but it's in the process of being expanded to support other platforms.
+Original proof-of-concept code was made to support Mikrotik networks, but it's in the process of being expanded to support other platforms.
 
 ## What platforms can this run on?
 It runs on Linux and Windows with Python 2.7 installed. Python PIP is required to install the needed modules in the [requirements.txt](./Install/requirements.txt) installation file.
@@ -14,6 +14,3 @@ No, we do not provide a pre-configured VM image. See the following pre-built Ubu
 - Install media for Ubuntu Server from Canonical's [Ubuntu Server download page](https://www.ubuntu.com/download/server).
 
 **Note**: Only download installation media or server images from trusted vendor and developer sources.
-
-## Do you offer professional support?
-At the moment we do not, but we are in the process of exploring what it would take to provide that service at the level we expect of ourselves.
