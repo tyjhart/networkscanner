@@ -61,22 +61,33 @@ for target in targets:
 	now = datetime.datetime.utcnow() # Get the current UTC time
 	result_cache[target]["Time"] = now.strftime("%Y-%m-%dT%H:%M:%S") + ".%03d" % (now.microsecond / 1000) + "Z" # Scan UTC timestamp
 	
-	# SSH Mikrotik default login (admin,"")
+	# SSH Mikrotik logins
+	result_cache[target]["SSH"] = {} # Cache for SSH results
 	logging.info("Trying default SSH credentials on " + str(target))
 	try:
-		ssh.connect(target, username=username, password=password) # Connect
+		ssh.connect(target, username=username, password=password, timeout=5) # Connect
 		#stdin,stdout,stderr = ssh.exec_command("ip address print")
 		ssh.close() # Kill SSH connection
 
 		score_cache.append((0,3)) # Fail, Heavy weight
-		result_cache[target]["Default Credentials In Use"] = "Fail"
+		result_cache[target]["SSH"]["Default Credentials In Use"] = "Fail"
+		result_cache[target]["SSH"]["SSH Connection"] = "OK"
 		logging.info("Default SSH credentials still set on " + str(target) + " - FAIL")
+	
 	except paramiko.AuthenticationException:
 		score_cache.append((100,3)) # Pass, Heavy weight
-		result_cache[target]["Default Credentials In Use"] = "Pass"
+		result_cache[target]["SSH"]["Default Credentials In Use"] = "Pass"
+		result_cache[target]["SSH"]["SSH Connection"] = "OK"
 		logging.info("Default SSH credentials failed on " + str(target) + " - PASS")
+	
+	except paramiko.SSHException:
+		result_cache[target]["SSH"]["SSH Connection"] = "SSH Exception"
+
+	except socket.error:
+		result_cache[target]["SSH"]["SSH Connection"] = "Failed"
+	
 	except:
-		pass
+		result_cache[target]["SSH"]["SSH Connection"] = "Failed"
 
 	# TCP Services
 	logging.info("Beginning TCP scan of " + str(target))
@@ -87,17 +98,22 @@ for target in targets:
 	for port_num in ports:
 		result_cache[target]["TCP Services"][port_num] = {}
 		result_cache[target]["TCP Services"][port_num]["Service"] = ports[port_num]["Service"]
+		socket.setdefaulttimeout(2)
 		s = socket.socket()
+		
 		
 		logging.info("Scanning TCP " + str((target,port_num)))
 		try:
 			s.connect((target, port_num)) 
 			tcp_score -= ports[port_num]["Deduction"]
-			result_cache[target]["TCP Services"][port_num]["Status"] = "Not Closed"
-			logging.info(str((target,port_num)) + " Not Closed")
-		except: 	
+			result_cache[target]["TCP Services"][port_num]["Status"] = "Open"
+			logging.info(str((target,port_num)) + " Open")
+		except socket.timeout: 	
+			result_cache[target]["TCP Services"][port_num]["Status"] = "Timeout"
+			logging.info(str((target,port_num)) + " Timeout")
+		except socket.error as tcp_error:
 			result_cache[target]["TCP Services"][port_num]["Status"] = "Closed"
-			logging.info(str((target,port_num)) + " Closed")
+			logging.info(str((target,port_num)) + " " + str(tcp_error))
 		
 		s.close()
 	score_cache.append((tcp_score,2)) # TCP port score, normal weight
@@ -117,6 +133,8 @@ for target in targets:
 	# SNMP Public community probes
 	#
 	# Based on example from http://pysnmp.sourceforge.net/examples/hlapi/asyncore/sync/manager/cmdgen/snmp-versions.html
+	result_cache[target]["SNMP"] = {} # SNMP cache
+
 	snmp_poller = getCmd(SnmpEngine(),
                   CommunityData('public'),
                   UdpTransportTarget((target, 161)),
@@ -127,10 +145,10 @@ for target in targets:
 	
 	if errorIndication:  # Public SNMP failed
 		score_cache.append((100,2)) # Pass, normal weight
-		result_cache[target]["SNMP Public Community In Use"] = "Pass"
+		result_cache[target]["SNMP"]["Public Community In Use"] = "Pass"
 	else:
 		score_cache.append((0,2)) # Fail, normal weight
-		result_cache[target]["SNMP Public Community In Use"] = "Fail"
+		result_cache[target]["SNMP"]["Public Community In Use"] = "Fail"
 
 # Output
 print json.dumps(result_cache, sort_keys=True,indent=4, separators=(',', ': '))
